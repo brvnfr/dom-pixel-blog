@@ -51,7 +51,7 @@ export default function SingleBlog({key,data,currentUser}:BlogProps) {
 
                 <div className="w-[530px] flex flex-col gap-4 leading-[1.5]">
                 <h1>{data.name}</h1>
-                <p>{data.description}</p>
+                <span>{data.description}</span>
                 </div>
             </div>
         </div>
