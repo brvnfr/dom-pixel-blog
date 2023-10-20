@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import { Container, Paper, Button, Text, Group } from '@mantine/core';
-import ToggleTheme from '@/components/ToggleTheme'
+import ToggleTheme from '@/components/ToggleTheme/ToggleTheme'
 interface UserMenuProps {
     currentUser: SafeUser | null
   }
