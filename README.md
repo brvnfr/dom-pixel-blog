@@ -32,7 +32,7 @@ git clone https://github.com/seu-usuario/dom-pixel-blog.git
 3. Execute o comando abaixo para instalar as dependencias do projeto:
    
 ```bash
-npx prisma generate
+npm i
 ```
 
 4. Execute o comando abaixo para criar um client do prisma:
