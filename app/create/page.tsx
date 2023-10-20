@@ -58,9 +58,9 @@ export default function page() {
         <TextInput type="text" value={state.name} name="name" onChange={handleChange} />
         <TextInput type="text" value={state.description} name="description" onChange={handleChange} />
         <div>
-          <Button type="submit" fullWidth disabled={isLoading}>
-            Publicar
-          </Button>
+        <Button type="submit" fullWidth disabled={!state.imageSrc}>
+  Publicar
+</Button>
         </div>
       </div>
     </form>

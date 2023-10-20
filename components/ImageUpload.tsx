@@ -1,35 +1,50 @@
 import React, { useState } from 'react';
 import { IconUpload, IconPhoto, IconX } from '@tabler/icons-react';
-import { Dropzone, IMAGE_MIME_TYPE, FileWithPath } from '@mantine/dropzone';
-import { Group, Text, rem, Image, SimpleGrid, Flex, Box } from '@mantine/core';
+import { Dropzone } from '@mantine/dropzone';
+import { Group, Text, rem, Image, Flex, Box, Progress } from '@mantine/core';
 import { app } from '../config/firebase';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 function ImageUpload(props) {
   const [secureUrl, setSecureUrl] = useState<string>(''); 
+  const [uploadProgress, setUploadProgress] = useState<number>(0);
 
   const storage = getStorage(app);
 
   const handleDrop = async (acceptedFiles) => {
 
     setSecureUrl('');
+    setUploadProgress(0);
 
     for (const file of acceptedFiles) {
       const storageRef = ref(storage, `blogs/${file.name}`);
       
       try {
-        const snapshot = await uploadBytes(storageRef, file);
-        const downloadURL = await getDownloadURL(snapshot.ref);
+        const uploadTask = uploadBytesResumable(storageRef, file);
 
-        setSecureUrl(downloadURL);
+        // Listen for state changes, errors, and completion of the upload.
+        uploadTask.on('state_changed',
+          (snapshot) => {
+            // Get task progress by calling snapshot.bytesTransferred / snapshot.totalBytes
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            setUploadProgress(progress);
+          }, 
+          (error) => {
+            console.error('Erro ao fazer upload da imagem:', error);
+          }, 
+          () => {
+            // Upload completed successfully
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+              setSecureUrl(downloadURL);
+              if (props.onSecureUrl) {
+                props.onSecureUrl(downloadURL);
+              }
+            });
+          }
+        );
       } catch (error) {
         console.error('Erro ao fazer upload da imagem:', error);
       }
-    }
-
-    // Passe a URL segura para o componente pai
-    if (props.onSecureUrl) {
-      props.onSecureUrl(secureUrl);
     }
   }
 
@@ -44,7 +59,7 @@ function ImageUpload(props) {
           onDrop={handleDrop}
           onReject={(files) => console.log('rejected files', files)}
           maxSize={3 * 1024 ** 2}
-          accept={IMAGE_MIME_TYPE}
+          accept=".jpg,.png"
           {...props}
         >
           <Group justify="center" gap="md" mih={220} style={{ pointerEvents: 'none', marginTop: '1em' }}>
@@ -74,6 +89,7 @@ function ImageUpload(props) {
           </Group>
         </Dropzone>
         {previews}
+        <Progress value={uploadProgress} max={100} />
       </Box>
     </Flex>
   );
