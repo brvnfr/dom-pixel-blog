@@ -55,7 +55,7 @@ function ImageUpload(props) {
 
   return (
     <Flex justify="flex-center" align="flex-center" direction="column">
-      <Box maw='500' bg="gray.1">
+      <Box maw='500'>
         <Dropzone
           onDrop={handleDrop}
           onReject={(files) => console.log('rejected files', files)}
