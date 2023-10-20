@@ -45,7 +45,7 @@ export default function SingleBlog({key,data,currentUser}:BlogProps) {
       }
     
       return (
-        <div className="w-[600px] h-[600px]">
+        <div className="w-full max-w-screen-lg ">
         <Card withBorder radius="md" p="md" className={classes.card}>
           <Card.Section>
             <Image src={data.imageSrc} alt={'image'} height={180} />
