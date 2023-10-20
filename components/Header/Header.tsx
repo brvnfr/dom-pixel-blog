@@ -4,7 +4,7 @@ import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
-import { Container, Paper, Button, Text, Group } from '@mantine/core';
+import { useMantineTheme, Container, Paper, Button, Text, Group } from '@mantine/core';
 import { IconPlus } from '@tabler/icons-react';
 import ToggleTheme from '@/components/ToggleTheme/ToggleTheme'
 
@@ -13,6 +13,7 @@ interface UserMenuProps {
 }
 
 export default function Navbar({currentUser}: UserMenuProps) {
+    const theme = useMantineTheme();
   return (
     <Paper shadow="xs" style={{ padding: '1rem' }}>
       <Container>

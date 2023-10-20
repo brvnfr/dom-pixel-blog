@@ -1,7 +1,7 @@
 import getCurrentUser from "@/app/actions/getCurrentUser"
 import getBlogsById from "@/app/actions/getBlogsById";
-import SingleBlog from "@/components/SingleBlog";
-import BlogId from "@/components/BlogId";
+import BlogId from "@/components/BlogId/BlogId";
+import {Flex} from '@mantine/core'
 
 
 interface IParams {
@@ -24,17 +24,11 @@ export default async function page({params}:{params:IParams}) {
 
  
   return (
-
-
-    <div className="">
-        <div>
         <BlogId
           name={blog?.name}
           description={blog?.description}
           blogId={blog?.id}
           imageSrc={blog?.imageSrc}
         />
-      </div>
-    </div>
   )
 }

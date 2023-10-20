@@ -1,3 +1,4 @@
+
 import SingleBlog from "@/components/SingleBlog/SingleBlog";
 import getBlogs,{IBlogParams} from "./actions/getBlogs"
 import getCurrentUser from "./actions/getCurrentUser"
