@@ -27,7 +27,20 @@ Dom Pixel Blog é um projeto de teste técnico desenvolvido para a vaga de Fulls
 ```bash
 git clone https://github.com/seu-usuario/dom-pixel-blog.git
 ```
-2. Inicie o servidor de desenvolvimento:
+2. Crie um arquivo .env na raiz do projeto e copie o conteudo do arquivo .env.example.
+
+3. Execute o comando abaixo para instalar as dependencias do projeto:
+   
+```bash
+npx prisma generate
+```
+
+4. Execute o comando abaixo para criar um client do prisma:
+
+```bash
+npx prisma generate
+```
+5. Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
