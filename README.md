@@ -20,7 +20,7 @@ Dom Pixel Blog é um projeto de teste técnico desenvolvido para a vaga de Fulls
 
 - **API Personalizada:** Criei uma API personalizada para fornecer dados e funcionalidades para a aplicação, garantindo uma integração suave entre o frontend e o backend.
 
-## Instalação
+## Instalação e Configuração do Projeto
 
 1. Clone o repositório:
 
