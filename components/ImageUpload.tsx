@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import { IconUpload, IconPhoto, IconX } from '@tabler/icons-react';
 import { Dropzone } from '@mantine/dropzone';
