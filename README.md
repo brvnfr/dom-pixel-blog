@@ -26,17 +26,11 @@ Dom Pixel Blog é um projeto de teste técnico desenvolvido para a vaga de Fulls
 
 ```bash
 git clone https://github.com/seu-usuario/dom-pixel-blog.git
-
-## Getting Started
-
-First, run the development server:
+```
+2. Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 ## Uso
