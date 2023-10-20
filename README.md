@@ -25,7 +25,7 @@ Dom Pixel Blog é um projeto de teste técnico desenvolvido para a vaga de Fulls
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/dom-pixel-blog.git
+git clone https://github.com/brvnfr/dom-pixel-blog.git
 ```
 2. Crie um arquivo .env na raiz do projeto e copie o conteudo do arquivo .env.example.
 
